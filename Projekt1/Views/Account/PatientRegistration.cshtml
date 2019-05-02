@@ -1,0 +1,58 @@
+﻿@model Projekt1.Models.VM.Account.PatientRegistrationVM
+@{
+                /**/
+
+                /**/
+
+                ViewBag.Title = "PatientRegistration";
+                Layout = "~/Views/Shared/_LoginRegisterLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <div class="row justify-content-md-center">
+        @Html.ValidationSummary(true, "", new { @class = "col-md-auto text-white font-weight-bold", @id = "summary" })
+    </div>
+
+    <div class="form-group input-group-lg row justify-content-md-center">
+        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control col-md-5", @placeholder = "Imię", @required = "true" } })
+    </div>
+    <div class="form-group input-group-lg row justify-content-md-center">
+        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control col-md-5", @placeholder = "Nazwisko", @required = "true" } })
+        </div>
+
+
+
+        <div class="form-group input-group-lg row justify-content-md-center ">
+
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control col-md-5", @placeholder = "Email", @required = "true" } })
+
+        </div>
+        <div class="form-group input-group-lg row justify-content-md-center">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control col-md-5", @placeholder = "Hasło", @required = "true" } })
+        </div>
+        <div class="form-group input-group-lg row justify-content-md-center">
+            @Html.EditorFor(model => model.SamePassword, new { htmlAttributes = new { @class = "form-control col-md-5", @placeholder = "Powtórz hasło", @required = "true" } })
+        </div>
+
+        <br />
+        <div class="form-group input-group-lg row justify-content-md-center">
+            <div class="form-check">
+                <input class="" type="checkbox" id="gridCheck" required>
+                <label class="form-check-label text-white font-weight-bold" for="gridCheck">
+                    Akceptuje regulamin serwisu
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group row justify-content-md-center">
+            <input type="submit" class="btn btn-light text-primary font-weight-bold col-md-2" style="border-radius: 1rem;" value="Zarejestruj się" />
+        </div>
+        <div class="form-group">
+        </div>
+        }
+

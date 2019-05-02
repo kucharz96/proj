@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>VisDoc.pl - Umawianie wizyt u lekarza</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+
+
+    <script type='text/javascript'>
+      $(document).ready(function () {
+    $("#somevalue").autocomplete({
+        source: @Url.Action("Autocomplete", "Home");
+    });
+})
+    </script>
+
+
+</head>
+
+<body class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <img src="~/Content/Images/logo1.png" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Zarejestruj się</a>
+                        <div class="dropdown-menu">
+                            @Html.ActionLink("jako pacjent", "PatientRegistration", "Account", null, new { @class = "dropdown-item" })
+                            
+                            
+                            @Html.ActionLink("jako lekarz", "DoctorRegistration", "Account", null, new { @class = "dropdown-item" })
+                            
+
+                        </div>
+                    </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Zaloguj się", "Login", "Account", null, new { @class = "nav-link text-white" })
+                        </li>
+
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link">Witaj @HttpContext.Current.User.Identity.Name </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Wyloguj", "LogOff", "Account", null, new { @class = "nav-link text-white" })
+
+                        </li>
+
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    @RenderBody()
+
+    <footer class="py-5 ">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+
+</html>

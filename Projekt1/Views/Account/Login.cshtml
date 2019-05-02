@@ -1,0 +1,51 @@
+﻿@model Projekt1.Models.VM.Account.LoginVM
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginRegisterLayout.cshtml";
+
+}
+
+
+
+@using (Html.BeginForm())
+
+{
+    
+    @Html.AntiForgeryToken()
+    <div class="row justify-content-md-center">
+        @Html.ValidationSummary(true, "", new { @class = "col-md-auto text-white font-weight-bold", @id = "summary" })
+    </div>
+   
+    <div class="form-group input-group-lg row justify-content-md-center">
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control col-md-3", @placeholder = "Email",@required="true" } })
+        
+
+    </div>
+   
+    <div class="form-group input-group-lg row justify-content-md-center ">
+
+        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control col-md-3", @placeholder = "Hasło",@required="true" } })
+
+    </div>
+    
+
+    <div class="form-group row justify-content-md-center">
+        <input type="submit" class="btn btn-light text-primary font-weight-bold col-md-2" style="border-radius: 1rem;" value="Zaloguj się" />
+    </div>
+    <div class="form-group">
+    </div>
+
+}
+<div class="col-md-12 text-center text-white font-weight-bold">Nie pamiętasz hasła?</div>
+<hr class="bg-white col-md-4" />
+<center>
+    <div class="form-group">
+        <div class="col-md-12 text-center text-white font-weight-bold">Zarejestruj się jako:</div><br />
+        <input type="submit" class="btn btn-light text-primary font-weight-bold col-md-1" style="border-radius: 1rem;" value="Pacjent" />
+        <input type="submit" class="btn btn-light text-primary font-weight-bold col-md-1" style="border-radius: 1rem;" value="Lekarz" />
+    </div>
+    <div class="form-group">
+    </div>
+</center>
+

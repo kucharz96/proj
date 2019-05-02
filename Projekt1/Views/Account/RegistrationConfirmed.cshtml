@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "RegistrationConfirmed";
+    Layout = "~/Views/Shared/_LoginRegisterLayout.cshtml";
+}
+
+
+    <div class="jumbotron bg-primary text-white text-center">
+        <h1 class="display-2">Gratulację</h1>
+        <p class="lead font-weight-bold">Twoje konto zostało zarejestrowane</p>
+        <hr class="my-4 bg-light">
+        <p class="font-weight-bold">Na Twój adres email wysłaliśmy link pozwalający na aktywację konta</p><br />
+        <a class="btn btn-primary btn-lg bg-light text-primary font-weight-bold" href="@Url.Action("Index", "Home")" role="button">Powrót na strone głowną</a>
+    </div>
